@@ -243,14 +243,21 @@ Now let’s grant permissions to the customers table by excluding the address an
 ![](images/quicksight_3.png)
 
 **Visualize data**
+
 In our use case, we logically grouped our users and cardholders into a columnar format in preprocessing, which we can now use to sort through and derive value. In QuickSight, we use the heat map visualization to map the buyer to the number of times they used someone else’s credit card. This gives us a visual of which users used different credit cards the most.
 
 **1.** Sign in using analyst@example.com.
+
 **2.** On the QuickSight console, choose New analysis.
+
 **3.** Choose New datasets.
+
 **4.** For Create a Dataset, choose Athena.
+
 **5.** Enter ABCCompany Analysis as the data source.
+
 **6.** Choose Create data source.
+
 **7.** Choose the database db1.
 
 As shown in the following screenshot, you’re only shown the table permissions granted to the QuickSight Analyst group.
