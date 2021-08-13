@@ -1,6 +1,6 @@
 # **Securely Analyze Data With AWS Lake Formation and Amazon QuickSight**
 
-This lab is provided as part of **[AWS Innovate Data Edition](https://aws.amazon.com/events/aws-innovate/data/)**,  it has been adapted from an [AWS blog post](https://aws.amazon.com/blogs/big-data/securely-analyze-your-data-with-aws-lake-formation-and-amazon-quicksight/)**
+This lab is provided as part of **[AWS Innovate Data Edition](https://aws.amazon.com/events/aws-innovate/data/)**,  it has been adapted from an [AWS blog post](https://aws.amazon.com/blogs/big-data/securely-analyze-your-data-with-aws-lake-formation-and-amazon-quicksight/)
 
 Click [here](https://github.com/phonghuule/aws-innovate-data) to explore the full list of hands-on labs.
 
@@ -107,7 +107,9 @@ Lake Formation is now the single pane of glass for data governance within your d
 
 **17.** On the Actions menu, choose Edit.
 
-**18.** Choose the S3 bucket created as part of the CloudFormation stack as the database location. The naming convention of the S3 bucket is <account_number><region_name><bucket_name>. For example, it should appear as similar to 111122223333virginiamybucketname. Do not choose the bucket name ending with athenaoutput.
+**18.** Choose the S3 bucket created as part of the CloudFormation stack as the database location. 
+Name should be in this format - 292695198383virginiasecurelfblog
+Do not choose the bucket name ending with athenaoutput.
 
 **19.** Deselect Use only IAM access control for new tables in this database.
 
