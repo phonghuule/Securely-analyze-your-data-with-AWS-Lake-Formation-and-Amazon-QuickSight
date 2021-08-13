@@ -221,23 +221,35 @@ We use this ARN to configure access permissions to this QuickSight group in Lake
 Because we configured the data lake bucket and Athena output bucket with CMKs, we need to grant the following key operations to the QuickSight role.
 
 **9.** Sign in with the admin@example.com
+
 **10.** On the Lake Formation console, choose Data permissions. Choose Grant.
+
 **11.** For SAML and Amazon QuickSight users and groups, enter the Analyst group ARN you copied earlier.
+
 **12.** For Database, choose db1.
+
 **13.** For Tables, choose clean_cards and clean_sales.
+
 **14.** For Table permissions, select Select. Choose Grant.
 
 ![](images/quicksight_2.png)
 
 Now let’s grant permissions to the customers table by excluding the address and email fields.
+
 **15.** On the Data permissions page, choose Grant.
 
 **16.** For SAML and Amazon QuickSight users and groups, enter the Analyst group ARN you copied earlier.
+
 **17.** For Database, choose db1.
+
 **18.** For Tables, choose customers.
+
 **19.** For Columns, choose Exclude columns.
+
 **20.** For Exclude columns, choose address and email.
+
 **21.** For Table permissions, select Select.
+
 **22.** Choose Grant.
 
 ![](images/quicksight_3.png)
