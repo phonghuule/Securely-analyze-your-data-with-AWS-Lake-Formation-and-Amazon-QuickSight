@@ -168,8 +168,7 @@ Let’s run the ETL jobs to clean the cards and sales data. They create new file
 **4.** Expand Security configuration, script libraries, and job parameters.
     
 **5.** Under Job parameters, add the key --output_s3_bucket_name and the value as the bucket name that contains the CSV files. 
-https://s3.console.aws.amazon.com/s3/home?region=us-east-1&region=us-east-1
-Name should be in this format - 292695198383virginiasecurelfblog
+You can navigate to [Amazon S3](https://s3.console.aws.amazon.com/s3/home?region=us-east-1&region=us-east-1) to get the bucket's name, it should be in this format - 292695198383virginiasecurelfblog
     
 **6.** Choose Run job.
 
