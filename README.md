@@ -131,7 +131,7 @@ The next permission we want to grant is the ability for our AWS Glue execution r
 
 **26.** Choose Grant.
 
-![](images/configure-lake-formation-5.PNG)
+![](images/configure-lake-formation-5.png)
 
 Now that data lake admin is set up and Lake Formation is managing permissions, we can work on creating table definitions of cards, customers, and sales data into the Lake Formation Data Catalog. Let’s verify the files created by the CloudFormation template into S3 bucket folders.
 
