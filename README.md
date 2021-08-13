@@ -81,7 +81,7 @@ We now need to revoke permissions for IAMAllowedPrincipals.
 
 **7.** On the Data permissions page, revoke all grants to the group IAMAllowedPrincipals
 
-![](images/configure-lake-formation-3.png)
+![](images/configure-lake-formation-3.PNG)
 
 Lake Formation is now the single pane of glass for data governance within your data lake. To configure user permissions in Lake Formation, you must be a data lake admin. The CloudFormation template already created admin@example.com as our data lake admin. When you’re logged in as the admin, you need to grant them the ability to manage permissions for users.
 
@@ -131,7 +131,7 @@ The next permission we want to grant is the ability for our AWS Glue execution r
 
 **26.** Choose Grant.
 
-![](images/configure-lake-formation-5.png)
+![](images/configure-lake-formation-5.PNG)
 
 Now that data lake admin is set up and Lake Formation is managing permissions, we can work on creating table definitions of cards, customers, and sales data into the Lake Formation Data Catalog. Let’s verify the files created by the CloudFormation template into S3 bucket folders.
 
@@ -187,8 +187,6 @@ Now that we have our new tables with masked card data and cleaned sales data, yo
 **10.** On the Lake Formation console, grant the Select permission to the clean_cards and clean_sales tables for the user analyst@example.com.
 
 This completes the permissions scope for the analyst user.
-
-![](images/configure-lake-formation-10.png)
 
 ## Enable fine-grained permission for QuickSight users
 To enable fine-grained permissions for viewers, you must first add them to a QuickSight group that can be configured in Lake Formation with fine-grained permissions. For this post, we create the QuickSight user analyst@example.com.
