@@ -242,7 +242,7 @@ Now let’s grant permissions to the customers table by excluding the address an
 
 ![](images/quicksight_3.png)
 
-**Visualize data**
+## Visualize data ##
 
 In our use case, we logically grouped our users and cardholders into a columnar format in preprocessing, which we can now use to sort through and derive value. In QuickSight, we use the heat map visualization to map the buyer to the number of times they used someone else’s credit card. This gives us a visual of which users used different credit cards the most.
 
@@ -326,7 +326,7 @@ The following are some of the additional datasets and visualizations that you ca
 
 This data may provide valuable insights into the relationships between users and also provide a starting point for forensic investigations into customers that may be making fraudulent purchases.
 
-### Clean up
+## Clean up
 
 When you’re done with this exercise, complete the following steps to delete your resources and stop incurring costs:
 
