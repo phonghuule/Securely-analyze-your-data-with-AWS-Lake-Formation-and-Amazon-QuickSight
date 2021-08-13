@@ -108,8 +108,8 @@ Lake Formation is now the single pane of glass for data governance within your d
 **17.** On the Actions menu, choose Edit.
 
 **18.** Choose the S3 bucket created as part of the CloudFormation stack as the database location. 
-Name should be in this format - 292695198383virginiasecurelfblog
-Do not choose the bucket name ending with athenaoutput.
+
+The naming convention of the S3 bucket is <account_number><region_name><bucket_name>. For example, it should appear as similar to 111122223333virginiamybucketname. Do not choose the bucket name ending with athenaoutput.
 
 **19.** Deselect Use only IAM access control for new tables in this database.
 
