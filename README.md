@@ -348,3 +348,6 @@ When you’re done with this exercise, complete the following steps to delete yo
 This cleans up all the resources created by the stack.
 
 3. Cancel your QuickSight account.
+
+## Survey
+Please help us to provide your feedback [here](https://amazonmr.au1.qualtrics.com/jfe/form/SV_3a6rNirgLrWYRW6?Session=HOL05). Participants who complete the surveys from AWS Innovate Online Conference - Data Edition will receive a gift code for USD25 in AWS credits. AWS credits will be sent via email by 30 September, 2021.
