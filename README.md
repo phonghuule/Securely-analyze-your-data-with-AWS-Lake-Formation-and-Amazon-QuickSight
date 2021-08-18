@@ -39,7 +39,7 @@ Select <b>Choose Administrator</b> and select the logged in IAM user as administ
 
 **3.** Launch the CloudFormation template by choosing Launch Stack
 
-<a href="https://aws.amazon.com/blogs/compute/building-an-immersive-vr-streaming-solution-on-aws/" target="_blank">
+<a href="https://console.aws.amazon.com/cloudformation/home?#/stacks/new?templateURL=https://aws-bigdata-blog.s3.amazonaws.com/artifacts/secure-sensitive-data-lkf-qs-blog/lakeformation.template" target="_blank">
 <img src="./images/LaunchStack.png">
 </a>
 
