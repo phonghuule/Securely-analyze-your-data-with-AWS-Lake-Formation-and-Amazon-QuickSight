@@ -39,7 +39,7 @@ Select <b>Choose Administrator</b> and select the logged in IAM user as administ
 
 **3.** Launch the CloudFormation template by choosing Launch Stack
 
-<a href="https://console.aws.amazon.com/cloudformation/home?#/stacks/new?templateURL=https://aws-bigdata-blog.s3.amazonaws.com/artifacts/secure-sensitive-data-lkf-qs-blog/lakeformation.template" target="_blank">
+<a href="https://console.aws.amazon.com/cloudformation/home?#/stacks/new?templateURL=https://awsinnovatedata2022.s3.amazonaws.com/analyze-lf-quicksight/lakeformation.template" target="_blank">
 <img src="./images/LaunchStack.png">
 </a>
 
@@ -79,7 +79,7 @@ Next, we revoke generic IAM principal access to tables in our database. This mak
 
 We now need to revoke permissions for IAMAllowedPrincipals.
 
-**7.** On the Data permissions page, revoke all grants to the group IAMAllowedPrincipals
+**7.** On the **Data lake permissions** page, revoke all grants to the group IAMAllowedPrincipals
 
 ![](images/configure-lake-formation-3.PNG)
 
@@ -95,7 +95,7 @@ Lake Formation is now the single pane of glass for data governance within your d
 
 **12.** Reset the password (on your first login).
 
-**13.** On the Lake Formation console, choose Data permissions.
+**13.** On the Lake Formation console, choose **Data lake permissions**.
 
 **14.** Choose Grant.
 
@@ -109,9 +109,9 @@ Lake Formation is now the single pane of glass for data governance within your d
 
 **18.** Choose the S3 bucket created as part of the CloudFormation stack as the database location. 
 
-The naming convention of the S3 bucket is <account_number><region_name><bucket_name>. For example, it should appear as similar to 111122223333virginiamybucketname. Do not choose the bucket name ending with athenaoutput.
+The naming convention of the S3 bucket is **<account_number><region_name><bucket_name>**. For example, it should appear as similar to **111122223333virginiamybucketname**. **DO NOT** choose the bucket name ending with **athenaoutput**.
 
-**19.** Deselect Use only IAM access control for new tables in this database.
+**19.** Deselect **Use only IAM access control for new tables in this database**.
 
 **20.** Choose Save.
 
@@ -119,7 +119,7 @@ After this step, if you see IAMAllowedPrincpals under Data permissions, follow t
 
 The next permission we want to grant is the ability for our AWS Glue execution role to create new tables in our db1 database:
 
-**21.** On the Data permissions page, choose Grant.
+**21.** On the **Data lake permissions** page, choose Grant.
 
 **22.** For IAM users and roles, choose the AWS Glue role created as part of the CloudFormation stack.
 
@@ -161,15 +161,17 @@ Let’s run the ETL jobs to clean the cards and sales data. They create new file
 
 **1.** Make sure you’re signed in as the data lake admin with username admin@example.com.
 
-**2.** On the AWS Glue console, choose Jobs.
+**2.** On the **AWS Glue console**, choose **Jobs (legacy)**.
     
-**3.** Select the job clean_cards_data and on the Action menu, choose Run job.
+**3.** Select the job **clean_cards_data** and on the Action menu, choose **Run job**.
     
 **4.** Expand Security configuration, script libraries, and job parameters.
     
 **5.** Under Job parameters, add the key --output_s3_bucket_name and the value as the bucket name that contains the CSV files. 
 You can navigate to [Amazon S3](https://s3.console.aws.amazon.com/s3/home?region=us-east-1&region=us-east-1) to get the bucket's name, it should be in this format - 292695198383virginiasecurelfblog
     
+![](images/Glue_Job_Param.png)
+
 **6.** Choose Run job.
 
 Next, we clean up our sales data. The dollar amounts for the purchase prices are casted as strings with a dollar sign ($) in them. To make analytics easier downstream, we want to have those casted as decimals without the dollar signs.
@@ -184,7 +186,9 @@ Now that we have generated our clean cards and clean sales data in the S3 bucket
 
 Now that we have our new tables with masked card data and cleaned sales data, you grant the analyst user permission to access it in Lake Formation.
 
-**10.** On the Lake Formation console, grant the Select permission to the clean_cards and clean_sales tables for the user analyst@example.com.
+**10.** On the Lake Formation console, **Data lake permissions** grant the Select permission to the clean_cards and clean_sales tables for the user analyst@example.com.
+
+![](images/analyst_permission.png)
 
 This completes the permissions scope for the analyst user.
 
@@ -222,7 +226,7 @@ Because we configured the data lake bucket and Athena output bucket with CMKs, w
 
 **9.** Sign in with the admin@example.com
 
-**10.** On the Lake Formation console, choose Data permissions. Choose Grant.
+**10.** On the Lake Formation console, choose **Data lake permissions**. Choose Grant.
 
 **11.** For SAML and Amazon QuickSight users and groups, enter the Analyst group ARN you copied earlier.
 
@@ -288,7 +292,7 @@ We now run queries to verify that the analyst user doesn’t have access to the 
 
 The following screenshot shows that we get a permission error.
 
-![](images/quicksight_5.png)
+![](images/analyst_error.png)
 
 **11.** Similarly, you can verify the permissions for sales table by running following query. You should see the same permission error as for the cards table.
 
@@ -314,7 +318,7 @@ The following screenshot shows our query results.
 
 ![](images/quicksight_8.png)
 
-**14.** Choose Save & visualize to create a visualization.
+**14.** Choose Publish & visualize to create a visualization.
 
 **15.** Choose + Add and choose Add visual.
 
