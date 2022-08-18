@@ -54,8 +54,8 @@ https://console.aws.amazon.com/iamv2/home#/users
 
 ## Configure Lake Formation
 
-**1.** First, we use Lake Formation to create a central data lake repository on Amazon S3 to store and analyze your data:
-* On the <b>Lake Formation</b> console, under <b>Data Catalog</b>, choose <b>Settings</b>
+**1.** First, we use [Lake Formation](https://us-east-1.console.aws.amazon.com/lakeformation/home?region=us-east-1) to create a central data lake repository on Amazon S3 to store and analyze your data:
+* On the [<b>Lake Formation</b> console](https://us-east-1.console.aws.amazon.com/lakeformation/home?region=us-east-1), under <b>Data Catalog</b>, choose <b>Settings</b>
 * <b>Deselect</b> the two check boxes associated with the Data Catalog using only IAM permissions
 * <b>Save</b>
 
@@ -85,57 +85,47 @@ We now need to revoke permissions for IAMAllowedPrincipals.
 
 Lake Formation is now the single pane of glass for data governance within your data lake. To configure user permissions in Lake Formation, you must be a data lake admin. The CloudFormation template already created admin@example.com as our data lake admin. When you’re logged in as the admin, you need to grant them the ability to manage permissions for users.
 
-**8.** On the IAM console, choose Users.
+**8.** On the Lake Formation console, choose **Data lake permissions**.
 
-**9.** Choose the admin@example.com user.
+**9.** Choose Grant.
 
-**10.** On the Security Credentials tab, copy the link for that user to log in.
-
-**11.** Open the link in a new browser or private browser window.
-
-**12.** Reset the password (on your first login).
-
-**13.** On the Lake Formation console, choose **Data lake permissions**.
-
-**14.** Choose Grant.
-
-**15.** Make sure the admin user has both database and grantable Super permissions on the db1 database.
+**10.** Make sure the admin user has both database and grantable Super permissions on the db1 database.
 
 ![](images/configure-lake-formation-4.png)
 
-**16.** On the Databases page, select the db1 database.
+**11.** On the Databases page, select the db1 database.
 
-**17.** On the Actions menu, choose Edit.
+**12.** On the Actions menu, choose Edit.
 
-**18.** Choose the S3 bucket created as part of the CloudFormation stack as the database location. 
+**13.** Choose the S3 bucket created as part of the CloudFormation stack as the database location. 
 
 The naming convention of the S3 bucket is **<account_number><region_name><bucket_name>**. For example, it should appear as similar to **111122223333virginiamybucketname**. **DO NOT** choose the bucket name ending with **athenaoutput**.
 
-**19.** Deselect **Use only IAM access control for new tables in this database**.
+**14.** Deselect **Use only IAM access control for new tables in this database**.
 
-**20.** Choose Save.
+**15.** Choose Save.
 
 After this step, if you see IAMAllowedPrincpals under Data permissions, follow the steps as explained before to revoke the permissions.
 
 The next permission we want to grant is the ability for our AWS Glue execution role to create new tables in our db1 database:
 
-**21.** On the **Data lake permissions** page, choose Grant.
+**16.** On the **Data lake permissions** page, choose Grant.
 
-**22.** For IAM users and roles, choose the AWS Glue role created as part of the CloudFormation stack.
+**17.** For IAM users and roles, choose the AWS Glue role created as part of the CloudFormation stack.
 
-**23.** For Database, choose the db1 database.
+**18.** For Database, choose the db1 database.
 
-**24.** For Database permissions, select Create table.
+**19.** For Database permissions, select Create table.
 
-**25.** Make sure that no options are selected for Grantable permissions.
+**20.** Make sure that no options are selected for Grantable permissions.
 
-**26.** Choose Grant.
+**21.** Choose Grant.
 
 ![](images/configure-lake-formation-5.png)
 
 Now that data lake admin is set up and Lake Formation is managing permissions, we can work on creating table definitions of cards, customers, and sales data into the Lake Formation Data Catalog. Let’s verify the files created by the CloudFormation template into S3 bucket folders.
 
-**27.** On the Amazon S3 console, choose the bucket that you chose for the db1 location.
+**22.** On the Amazon S3 console, choose the bucket that you chose for the db1 location.
 
 The following CSV files are in their respective folders cards, customers, and sales:
 * cards.csv
@@ -144,7 +134,7 @@ The following CSV files are in their respective folders cards, customers, and sa
 
 Now that we’ve verified the files, let’s catalog it in the Lake Formation Data Catalog using AWS Glue crawlers.
 
-**28.**  On the AWS Glue console, choose Crawlers. 
+**23.**  On the AWS Glue console, choose Crawlers. 
 Select the crawler security-blog-crawler and choose Run crawler.
 
 This crawler was created by the CloudFormation template. It can crawl multiple data stores like cards, customers, and sales to populate the Data Catalog.
@@ -168,7 +158,7 @@ Let’s run the ETL jobs to clean the cards and sales data. They create new file
 **4.** Expand Security configuration, script libraries, and job parameters.
     
 **5.** Under Job parameters, add the key --output_s3_bucket_name and the value as the bucket name that contains the CSV files. 
-You can navigate to [Amazon S3](https://s3.console.aws.amazon.com/s3/home?region=us-east-1&region=us-east-1) to get the bucket's name, it should be in this format - 292695198383virginiasecurelfblog
+You can navigate to [Amazon S3](https://s3.console.aws.amazon.com/s3/home?region=us-east-1&region=us-east-1) to get the bucket's name, it should be in this format - <account-id><virginia><bucketname>
     
 ![](images/Glue_Job_Param.png)
 
